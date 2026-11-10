@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: postgres-init
+data:
+  init.sql: |
+    CREATE TABLE users (
+        user_id serial primary key,
+        username varchar(50) unique not null
+    );
+
+    CREATE TABLE projects (
+        project_id serial primary key,
+        owner_id integer references users(user_id) on delete cascade,
+        project_name varchar(50) unique not null,
+        client_name varchar(50) unique
+    );

@@ -34,3 +34,5 @@ build/
 
 curlRequests.txt
 .env
+postgres-secrets.yaml
+docker_token.txt
